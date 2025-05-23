@@ -20,8 +20,8 @@ ENV METABASE_USERNAME=""
 ENV METABASE_PASSWORD=""
 
 # Expose the port for the mcpo proxy server
-EXPOSE 8000
+EXPOSE 8003
 
 # Run mcpo proxy with the Metabase MCP server
 # API key can be overridden at runtime with -e API_KEY=your-key
-CMD ["uvx", "mcpo", "--host", "0.0.0.0", "--port", "8000", "--api-key", "${API_KEY:-metabase-api-key}", "--", "python", "server.py"]
+CMD ["uvx", "mcpo", "--host", "0.0.0.0", "--port", "8003", "--api-key", "${API_KEY:-metabase-api-key}", "--", "python", "server.py"]
