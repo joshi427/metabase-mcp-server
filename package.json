@@ -1,0 +1,30 @@
+{
+  "name": "metabase-mcp-server",
+  "version": "1.0.0",
+  "description": "Metabase MCP Server",
+  "main": "index.js",
+  "bin": {
+    "metabase-mcp": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "node -r dotenv/config ./bin/cli.js",
+    "start:python": "python -m dotenv.cli run python server.py",
+    "start:docker": "docker build -t metabase-mcp-server . && docker run -it --rm --env-file .env metabase-mcp-server",
+    "build": "docker build -t metabase-mcp-server .",
+    "setup": "npm install && pip install -r requirements.txt"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "cross-spawn": "^7.0.3"
+  },
+  "keywords": [
+    "metabase",
+    "mcp",
+    "server"
+  ],
+  "author": "",
+  "license": "MIT"
+}
